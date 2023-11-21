@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IDirectorService {
 
-    public Directors addDirectors(Directors directors);
+    public Directors addDirector(Directors director);
 
     public String addDirectors(List<Directors> directors);
 

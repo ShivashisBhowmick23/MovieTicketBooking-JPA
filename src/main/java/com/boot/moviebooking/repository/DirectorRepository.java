@@ -4,4 +4,6 @@ import com.boot.moviebooking.entity.Directors;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DirectorRepository extends JpaRepository<Directors, Integer> {
+
+    // CUSTOM QUERY WE CAN WRITE, WHICH ARE NOT PROVIDED BY JPA REPOSITORY
 }

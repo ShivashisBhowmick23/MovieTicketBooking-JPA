@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IMovieService {
 
-    public Movies addMovies(Movies movies);
+    public Movies addMovie(Movies movie);
 
     public String addMovies(List<Movies> movies);
 
