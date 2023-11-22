@@ -3,16 +3,17 @@ package com.boot.moviebooking.service;
 import com.boot.moviebooking.entity.Movies;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IMovieService {
 
     public Movies addMovie(Movies movie);
 
-    public String addMovies(List<Movies> movies);
+    public List<Movies> addMovies(List<Movies> movies);
 
-    public Movies findByMovieId(int movie_id);
+    public Optional<Movies> findByMovieId(int movie_id);
 
-    public Movies deleteByMovieId(int movie_id);
+    public boolean deleteByMovieId(int movie_id);
 
     public Movies updateMovieById(int  movie_id);
 }
