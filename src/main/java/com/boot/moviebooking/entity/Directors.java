@@ -10,14 +10,14 @@ import java.util.List;
 @Data
 @Entity
 public class Directors {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private int director_id;
-	private String director_name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int director_id;
+    private String director_name;
 
-	@JsonIgnore()
-	@OneToMany(mappedBy = "directors")
-	private List<Movies> movies = new ArrayList<>();
+    @JsonIgnore()
+    @OneToMany(mappedBy = "directors")
+    private List<Movies> movies = new ArrayList<>();
 
 }

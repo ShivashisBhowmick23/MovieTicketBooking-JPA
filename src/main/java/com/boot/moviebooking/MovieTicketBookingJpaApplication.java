@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MovieTicketBookingJpaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MovieTicketBookingJpaApplication.class, args);
-		System.out.println("Running....");
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MovieTicketBookingJpaApplication.class, args);
+        System.out.println("Running....");
+    }
 
 }

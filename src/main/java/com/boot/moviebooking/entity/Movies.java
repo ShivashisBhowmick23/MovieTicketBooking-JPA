@@ -1,9 +1,9 @@
 package com.boot.moviebooking.entity;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 @Entity
@@ -25,7 +25,7 @@ public class Movies {
     private Directors directors;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "theatre_id")
     private List<Theatres> theatres;
 
     public Movies() { // for using JPA we need to use NO ARGUMENTS CONSTRUCTOR
@@ -62,6 +62,10 @@ public class Movies {
 
     public void setMovie_id(int movie_id) {
         this.movie_id = movie_id;
+    }
+
+    public void setTheatres(List<Theatres> theatres) {
+        this.theatres = theatres;
     }
 
     @Override

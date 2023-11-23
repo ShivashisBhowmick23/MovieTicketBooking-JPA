@@ -3,20 +3,23 @@ package com.boot.moviebooking.service;
 import com.boot.moviebooking.entity.Theatres;
 import com.boot.moviebooking.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TheatreServiceImpl implements ITheatreService {
 
     @Autowired
     TheatreRepository theatreRepo;
+
     @Override
     public Theatres addTheatre(Theatres theatre) {
         Theatres addSingleTheatre = new Theatres();
         theatreRepo.save(addSingleTheatre);
-        return  addSingleTheatre;
+        return addSingleTheatre;
 
     }
 

@@ -1,17 +1,18 @@
 package com.boot.moviebooking.service;
 
 import com.boot.moviebooking.entity.Directors;
-import com.boot.moviebooking.entity.Movies;
 import com.boot.moviebooking.repository.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class DirectorServiceImpl implements IDirectorService {
 
-@Autowired
+    @Autowired
     DirectorRepository directorRepo;
 
     @Override
