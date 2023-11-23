@@ -11,7 +11,7 @@ public interface IMovieService {
 
     public Movies addMovie(Movies movie);
 
-    public String addMovies(List<Movies> movies);
+    public List<Movies> addMovies(List<Movies> movies);
 
     public Optional<Movies> findByMovieId(int movie_id);
 
@@ -19,5 +19,5 @@ public interface IMovieService {
 
     public boolean deleteByMovieId(int movie_id);
 
-    public Movies updateMovieById(int movie_id);
+    public Movies updateMovieById(Movies movie);
 }

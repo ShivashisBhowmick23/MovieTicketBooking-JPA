@@ -1,7 +1,9 @@
 package com.boot.moviebooking.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.List;
 
@@ -9,17 +11,21 @@ import java.util.List;
 @Entity
 public class Movies {
     @Id
+    @NotNull(message = "Movie ID cannot be NULL or EMPTY")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int movie_id;
 
+    @NotNull(message = "Movie Name cannot be NULL or EMPTY")
     private String movie_name;
 
+    @NotNull(message = "Movie Category cannot be NULL or EMPTY")
     private String movie_category;
 
+    @NotNull(message = "Release Year Cannot be NULL or EMPTY")
     private String releaseYear;
 
+    @NotNull(message = "MOVIE RATING cannot be NULL or EMPTY")
     private String rating;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     private Directors directors;

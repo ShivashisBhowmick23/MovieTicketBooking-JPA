@@ -26,10 +26,9 @@ public class MovieServiceImpl implements IMovieService {
     }
 
     @Override
-    public String addMovies(List<Movies> movies) {
-        List<Movies> addMultipleMovies = new ArrayList<>();
-        movieRepo.saveAll(addMultipleMovies);
-        return "Multiple Movies Added  -- Status Success";
+    public List<Movies> addMovies(List<Movies> movies) {
+        List<Movies> addMultipleMovies = movieRepo.saveAll(movies);
+        return addMultipleMovies;
 
     }
 
@@ -54,9 +53,8 @@ public class MovieServiceImpl implements IMovieService {
     }
 
     @Override
-    public Movies updateMovieById(int movie_id) {
-        Movies updatedMovies = new Movies();
-        movieRepo.save(updatedMovies);
-        return updatedMovies;
+    public Movies updateMovieById(Movies movie) {
+        movieRepo.save(movie);
+        return movie;
     }
 }
