@@ -4,8 +4,6 @@ import com.boot.moviebooking.entity.Movies;
 import com.boot.moviebooking.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +39,7 @@ public class MovieServiceImpl implements IMovieService {
     public List<Movies> findAllMovies() {
         List<Movies> allMovies = movieRepo.findAll();
         int totalCount = allMovies.size();
-        System.out.println(totalCount);
+        System.out.println("Total Number of movies:: "+totalCount);
         return allMovies;
 
     }
