@@ -1,6 +1,8 @@
 package com.boot.moviebooking.controller;
 
 import com.boot.moviebooking.entity.Movies;
+import com.boot.moviebooking.entity.Theatres;
+import com.boot.moviebooking.repository.MovieRepository;
 import com.boot.moviebooking.service.DirectorServiceImpl;
 import com.boot.moviebooking.service.MovieServiceImpl;
 import com.boot.moviebooking.service.TheatreServiceImpl;
@@ -13,11 +15,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(URLMoviesConstant.REST_URL)
+@RequestMapping(URLMoviesConstant.MOVIES_REST_URL)
 public class MovieController {
 
     @Autowired
     MovieServiceImpl movieService;
+
+    @Autowired
+    MovieRepository movieRepo;
 
     @GetMapping(URLMoviesConstant.VIEW_MOVIE_BY_MOVIE_ID)
     public Optional<Movies> findByMovieId(@PathVariable("movie_id") int movie_id) {
@@ -33,7 +38,7 @@ public class MovieController {
 
     @PostMapping(URLMoviesConstant.ADD_MULTIPLE_MOVIES)
     public List<Movies> addMultipleMovies(@RequestBody List<Movies> movies) {
-      List<Movies>  multiple_movies = movieService.addMovies(movies);
+        List<Movies> multiple_movies = movieService.addMovies(movies);
         return multiple_movies;
     }
 
@@ -51,9 +56,19 @@ public class MovieController {
     }
 
     @PutMapping(URLMoviesConstant.VIEW_MOVIE_BY_MOVIE_ID)
-    public Movies updateMovieByMovieId(@RequestBody Movies movie){
+    public Movies updateMovieByMovieId(@RequestBody Movies movie) {
         Movies newMovie = movieService.updateMovieById(movie);
         return newMovie;
     }
+
+    @GetMapping(URLMoviesConstant.VIEW_MOVIES_BY_MOVIE_CATEGORY)
+    public List<Movies> getMoviesByCategory(@PathVariable("movie_category") String movie_category) {
+        List<Movies> result = movieRepo.findByCategory(movie_category);
+        System.out.println("Number of movies with " + movie_category + " " + result.stream().count());
+        return result;
+
+
+    }
+
 
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TheatreServiceImpl implements ITheatreService {
@@ -33,8 +32,8 @@ public class TheatreServiceImpl implements ITheatreService {
     }
 
     @Override
-    public Optional<Theatres> findByTheatreId(int theatre_id) {
-        return theatreRepo.findById(theatre_id);
+    public List<Theatres> findByTheatreId(String theatre_id) {
+        return theatreRepo.findByTheatreId(theatre_id);
     }
 
     @Override

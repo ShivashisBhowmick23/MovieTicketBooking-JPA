@@ -20,4 +20,5 @@ public interface IMovieService {
     public boolean deleteByMovieId(int movie_id);
 
     public Movies updateMovieById(Movies movie);
+
 }
