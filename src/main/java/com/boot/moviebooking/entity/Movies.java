@@ -5,7 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NonNull;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Entity
@@ -31,13 +33,16 @@ public class Movies {
     private Directors directors;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "theatre_id")
-    private List<Theatres> theatres;
+    @JoinTable(
+            name = "movies_theatres",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "theatre_id"))    @JoinColumn(name = "theatre_id")
+    private Set<Theatres> theatres = new HashSet<>();
 
     public Movies() { // for using JPA we need to use NO ARGUMENTS CONSTRUCTOR
     }
 
-    public Movies(String movie_name, String movie_category, String releaseYear, String rating, Directors directors, List<Theatres> theatres) {
+    public Movies(String movie_name, String movie_category, String releaseYear, String rating, Directors directors, Set<Theatres> theatres) {
         this.movie_name = movie_name;
         this.movie_category = movie_category;
         this.releaseYear = releaseYear;
@@ -70,7 +75,7 @@ public class Movies {
         this.movie_id = movie_id;
     }
 
-    public void setTheatres(List<Theatres> theatres) {
+    public void setTheatres(Set<Theatres> theatres) {
         this.theatres = theatres;
     }
 

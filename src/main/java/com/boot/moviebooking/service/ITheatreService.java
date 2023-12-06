@@ -1,5 +1,6 @@
 package com.boot.moviebooking.service;
 
+import com.boot.moviebooking.dto.TheatreDTO;
 import com.boot.moviebooking.entity.Theatres;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public interface ITheatreService {
 
     public List<Theatres> addTheatres(List<Theatres> theatres);
 
-    public List<Theatres> findByTheatreId(String theatre_id);
+    public List<TheatreDTO> findByTheatreId(String theatre_id);
 
     public boolean deleteByTheatreId(int theatre_id);
 
